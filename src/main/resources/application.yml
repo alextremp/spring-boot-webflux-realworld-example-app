@@ -1,0 +1,19 @@
+spring:
+  main:
+    banner-mode: "OFF"
+  profiles:
+    active: dev
+  datasource:
+    url: "jdbc:postgresql://${docker.host:localhost}:${database.port:5432}/postgres?currentSchema=conduit"
+    username: conduit
+    password: conduit
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: CONDUIT_DB_POOL
+      connection-timeout: 5000
+      minimum-idle: 10
+      maximum-pool-size: 25
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      leak-detection-threshold: 60000
